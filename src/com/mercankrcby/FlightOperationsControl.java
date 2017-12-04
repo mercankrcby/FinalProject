@@ -1,6 +1,7 @@
 package com.mercankrcby;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,14 +73,15 @@ public class FlightOperationsControl {
         if(fData.BCPassengerCount>0)
         {
             mPassengers.BCPassengerCount=fData.BCPassengerCount;
-            System.out.println(mPassengers.getBCPassengerCount());
+            //System.out.println(mPassengers.getBCPassengerCount());
         }
         if(fData.ECPassengerCount>0)
         {
             mPassengers.ECPassengerCount=fData.ECPassengerCount;
-            System.out.println(mPassengers.getECPassengerCount());
+            //System.out.println(mPassengers.getECPassengerCount());
         }
-        System.out.println("Finish Time :"+ fData.currentWorkerCount);
+        System.out.println("Totally :"+ "BusinessClass:"+mPassengers.getBCPassengerCount()+" Economic Class: "+mPassengers.getECPassengerCount()+" Flight Scheduled");
+        //System.out.println("Finish Time :"+ fData.currentWorkerCount);
     }
     public boolean isThereWorkerCount(FlightData fData)
     {
