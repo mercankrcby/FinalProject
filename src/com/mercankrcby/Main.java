@@ -25,11 +25,15 @@ public class Main {
             String controlResult=fOpControl.desicionFlightSituation(fDataList.get(i)).toString();
             System.out.println(controlResult);
             fOpControl.assignStatus(fDataList.get(i));
+            if(controlResult.equals(FlightOperationsControl.FlightSituation.CRITICAL))
+            {
+                fOpControl.assignWorkerForCriticalSituation(fDataList.get(i));
+            }
             //System.out.println(fDataList.get(i).status);
             //System.out.println(controlResult);
             //fOpControl.assignWorkerForPassenger(fDataList.get(i));
         }
-
+/*
 
         Graph graph = new Graph();
 
@@ -110,7 +114,7 @@ public class Main {
         System.out.println(graph.removeVertex("2")); //Vertex 2
 
         System.out.println(graph.vertexKeys()); //[3, 1, 0, 4]
-
+*/
         long endTime = System.currentTimeMillis();
         long estimatedTime = endTime - startTime; // Geçen süreyi milisaniye cinsinden elde ediyoruz
         double minutes = ((double)estimatedTime/1000)*4;

@@ -42,12 +42,19 @@ public class FlightOperationsControl {
                 if(!isThereWorkerCount(fData)){
                     return FlightSituation.MISCONN;
                 }
-                assignWorkerForCriticalSituation(fData);
+                //assignWorkerForCriticalSituation(fData);
                 return FlightSituation.CRITICAL;
             }
         }
         return FlightSituation.SHORT;
     }
+    public void assignWorkerForCriticalSituation(FlightData fData)
+    {
+        PassengerType nPassType=new PassengerType(fData.BCPassengerCount,fData.ECPassengerCount,fData.patientPassengerCount,fData.unaccompaniedChildPassengerCount,fData.groupPassengerCount);
+        StaffAssignmentAlg nAlg=new StaffAssignmentAlg(fData.currentWorkerCount,nPassType);
+        nAlg.flowOfAlgorithm();
+    }
+    /*
     public void assignWorkerForCriticalSituation(FlightData fData)
     {
         System.out.println("In Critical Situation , Assign Worker");
@@ -83,6 +90,7 @@ public class FlightOperationsControl {
         System.out.println("Totally :"+ "BusinessClass:"+mPassengers.getBCPassengerCount()+" Economic Class: "+mPassengers.getECPassengerCount()+" Flight Scheduled");
         //System.out.println("Finish Time :"+ fData.currentWorkerCount);
     }
+    */
     public boolean isThereWorkerCount(FlightData fData)
     {
         if(fData.getCurrentWorkerCount() > 0)
