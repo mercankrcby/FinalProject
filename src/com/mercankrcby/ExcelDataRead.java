@@ -41,6 +41,9 @@ public class ExcelDataRead {
         ArrayList<Integer> BCPassList = new ArrayList<Integer>();
         ArrayList<Integer> ECPassList = new ArrayList<Integer>();
         ArrayList<Integer> workerCountList = new ArrayList<Integer>();
+        ArrayList<Integer> patientPassList=new ArrayList<Integer>();
+        ArrayList<Integer> unAccoPassList=new ArrayList<Integer>();
+        ArrayList<Integer> gPassList=new ArrayList<Integer>();
         ArrayList<String> arrivalTimeList = new ArrayList<String>();
         ArrayList<String> departureTimeList = new ArrayList<String>();
 
@@ -65,11 +68,24 @@ public class ExcelDataRead {
                     int a=Integer.parseInt(Hucre.getContents());
                     workerCountList.add(a);
                 }
-                else if(j==3)
+                else if(j==3){
+                    int a=Integer.parseInt(Hucre.getContents());
+                    patientPassList.add(a);
+                }
+                else if(j==4){
+                    int a=Integer.parseInt(Hucre.getContents());
+                    unAccoPassList.add(a);
+                }
+                else if(j==5){
+                    int a=Integer.parseInt(Hucre.getContents());
+                    gPassList.add(a);
+                }
+                else if(j==6)
                 {
                     String a = Hucre.getContents();
                     arrivalTimeList.add(a);
                 }
+
                 else{
                     String a = Hucre.getContents();
                     departureTimeList.add(a);
@@ -86,6 +102,9 @@ public class ExcelDataRead {
             fDataObj.currentWorkerCount=workerCountList.get(i);
             fDataObj.arrivalTime=arrivalTimeList.get(i);
             fDataObj.departureTime=departureTimeList.get(i);
+            fDataObj.patientPassengerCount=patientPassList.get(i);
+            fDataObj.unaccompaniedChildPassengerCount=unAccoPassList.get(i);
+            fDataObj.groupPassengerCount=gPassList.get(i);
             fDataList.add(fDataObj);
             System.out.println(fDataList.get(i).toString());
         }

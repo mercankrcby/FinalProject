@@ -10,19 +10,50 @@ public class FlightData {
     public int status;
     public int BCPassengerCount;
     public int ECPassengerCount;
+    public int patientPassengerCount;
+    public int unaccompaniedChildPassengerCount;
+    public int groupPassengerCount;
     public int currentWorkerCount;
     //TO DO:String olarak tuttum ama Time 'a donustur
     public String arrivalTime;
     public String departureTime;
 
-    public FlightData()
-    {}
-    public FlightData(int BCPassengerCount, int ECPassengerCount, int currentWorkerCount, String arrivalTime, String departureTime) {
+    public FlightData() {
+    }
+
+    public FlightData(int BCPassengerCount, int ECPassengerCount, int patPassCount, int unaccChildPassCount, int gPassCount, int currentWorkerCount, String arrivalTime, String departureTime) {
         this.BCPassengerCount = BCPassengerCount;
         this.ECPassengerCount = ECPassengerCount;
+        this.patientPassengerCount = patPassCount;
+        this.unaccompaniedChildPassengerCount = unaccChildPassCount;
+        this.groupPassengerCount = gPassCount;
         this.currentWorkerCount = currentWorkerCount;
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
+    }
+
+    public int getPatientPassengerCount() {
+        return patientPassengerCount;
+    }
+
+    public void setPatientPassengerCount(int patientPassengerCount) {
+        this.patientPassengerCount = patientPassengerCount;
+    }
+
+    public int getUnaccompaniedChildPassengerCount() {
+        return unaccompaniedChildPassengerCount;
+    }
+
+    public void setUnaccompaniedChildPassengerCount(int unaccompaniedChildPassengerCount) {
+        this.unaccompaniedChildPassengerCount = unaccompaniedChildPassengerCount;
+    }
+
+    public int getGroupPassengerCount() {
+        return groupPassengerCount;
+    }
+
+    public void setGroupPassengerCount(int groupPassengerCount) {
+        this.groupPassengerCount = groupPassengerCount;
     }
 
     public int getBCPassengerCount() {
@@ -71,12 +102,15 @@ public class FlightData {
                 "BCPassengerCount=" + BCPassengerCount +
                 ", ECPassengerCount=" + ECPassengerCount +
                 ", currentWorkerCount=" + currentWorkerCount +
+                ", patientPassengerCount="+patientPassengerCount+
+                ", unAccoChildPassengerCount="+unaccompaniedChildPassengerCount+
+                ", groupPassengerCount="+groupPassengerCount+
                 ", arrivalTime='" + arrivalTime + '\'' +
                 ", departureTime='" + departureTime + '\'' +
                 '}';
     }
-    public Date stringToTime(String timeValue)
-    {
+
+    public Date stringToTime(String timeValue) {
         //String myTime = "10:30:54";
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
         Date date = null;
@@ -90,7 +124,7 @@ public class FlightData {
         return date;
     }
 
-    public class Status{
+    public class Status {
         int status;
 
         public Status(int status) {

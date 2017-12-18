@@ -10,6 +10,10 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) throws IOException, BiffException {
+
+        long startTime = System.currentTimeMillis();
+        // ... zaman alan bazı işlemler ...
+
         // write your code here
         ExcelDataRead ExcelReader=new ExcelDataRead("/Users/macboookair/Desktop/deneme.xls");
         ArrayList<FlightData> fDataList = new ArrayList<FlightData>();
@@ -25,6 +29,8 @@ public class Main {
             //System.out.println(controlResult);
             //fOpControl.assignWorkerForPassenger(fDataList.get(i));
         }
+
+
         Graph graph = new Graph();
 
         Vertex[] vertices = new Vertex[5];
@@ -88,7 +94,7 @@ public class Main {
         System.out.println("Vertex 3: " + graph.getVertex("3")); //Vertex 3
 
         System.out.println("Graph Contains {1, 2}: " +
-                        57
+
                 graph.containsEdge(new Edge(graph.getVertex("1"), graph.getVertex("2"))));
 
         System.out.println(graph.removeEdge(new Edge(graph.getVertex("1"), graph.getVertex("2"))));
@@ -105,6 +111,12 @@ public class Main {
 
         System.out.println(graph.vertexKeys()); //[3, 1, 0, 4]
 
+        long endTime = System.currentTimeMillis();
+        long estimatedTime = endTime - startTime; // Geçen süreyi milisaniye cinsinden elde ediyoruz
+        double minutes = ((double)estimatedTime/1000)*4;
+        //50'lik data icin 0.365 saniye surmektedir
+        System.out.println(minutes);
+
     }
 
         /*
@@ -115,6 +127,6 @@ public class Main {
         } catch (BiffException e) {
             e.printStackTrace();
         }*/
-    }
 }
+
 
