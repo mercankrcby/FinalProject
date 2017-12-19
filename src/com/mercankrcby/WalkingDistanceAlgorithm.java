@@ -13,6 +13,10 @@ public class WalkingDistanceAlgorithm {
     //public List arrivalGateToOperationCenter;
     //public List operationCenterToDepartureGate;
 
+    public WalkingDistanceAlgorithm()
+    {
+
+    }
     public WalkingDistanceAlgorithm(int gateNumberArrival, int gateNumberDeparture,String flightN) {
         this.gateNumberArrival = gateNumberArrival;
         this.gateNumberDeparture = gateNumberDeparture;

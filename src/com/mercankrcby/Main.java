@@ -18,7 +18,8 @@ public class Main {
         ExcelDataRead ExcelReader=new ExcelDataRead("/Users/macboookair/Desktop/deneme.xls");
         ArrayList<FlightData> fDataList = new ArrayList<FlightData>();
         fDataList=ExcelReader.ExceldenOku();
-
+        Facade facade = new Facade();
+/*
         for(int i=0;i<fDataList.size();++i)
         {
             FlightOperationsControl fOpControl=new FlightOperationsControl();
@@ -32,7 +33,7 @@ public class Main {
             //System.out.println(fDataList.get(i).status);
             //System.out.println(controlResult);
             //fOpControl.assignWorkerForPassenger(fDataList.get(i));
-        }
+        }*/
 /*
 
         Graph graph = new Graph();
